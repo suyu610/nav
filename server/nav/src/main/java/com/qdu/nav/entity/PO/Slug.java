@@ -1,22 +1,20 @@
-package com.qdu.nav.entity;
+package com.qdu.nav.entity.PO;
 
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
- * @ClassName Item
+ * @ClassName Slug
  * @Description TODO
  * @Author uuorb
  * @Date 2021/5/12 9:53 下午
  * @Version 0.1
  **/
 @Data
-public class Item implements Serializable {
-  int id;
+public class Slug implements Serializable {
   String title;
-  String url;
-  int tagId;
-  int isPrivate;
-  String desc;
+  String memo;
+  int id;
 }

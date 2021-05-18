@@ -1,6 +1,8 @@
-package com.qdu.nav.entity;
+package com.qdu.nav.entity.PO;
 
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * @ClassName Tag
@@ -10,7 +12,7 @@ import lombok.Data;
  * @Version 0.1
  **/
 @Data
-public class Tag {
+public class Tag implements Serializable {
   int id;
   String title;
   int slug_id;

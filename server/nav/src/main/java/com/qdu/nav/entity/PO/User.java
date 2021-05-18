@@ -1,4 +1,4 @@
-package com.qdu.nav.entity;
+package com.qdu.nav.entity.PO;
 
 import lombok.Data;
 

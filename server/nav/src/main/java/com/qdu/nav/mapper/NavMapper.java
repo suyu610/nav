@@ -1,12 +1,11 @@
 package com.qdu.nav.mapper;
 
 
-import com.qdu.nav.entity.Item;
-import com.qdu.nav.entity.Slug;
-import com.qdu.nav.entity.Tag;
+import com.qdu.nav.entity.PO.Item;
+import com.qdu.nav.entity.PO.Slug;
+import com.qdu.nav.entity.PO.Tag;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;

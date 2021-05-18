@@ -2,35 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qdu.nav.mapper.NavMapper">
 
-  <select id="getAllTags" resultType="com.qdu.nav.entity.Tag">
+  <select id="getAllTags" resultType="com.qdu.nav.entity.PO.Tag">
     select * from nav_tag;
   </select>
-  <select id="getAllPublicItem" resultType="com.qdu.nav.entity.Item">
+  <select id="getAllPublicItem" resultType="com.qdu.nav.entity.PO.Item">
     select * from nav_item where Is_Private = 0;
   </select>
-  <select id="getAllSlug" resultType="com.qdu.nav.entity.Slug">
+  <select id="getAllSlug" resultType="com.qdu.nav.entity.PO.Slug">
     select * from nav_slug;
   </select>
 
-  <select id="getTagBySlutId" parameterType="Integer" resultType="com.qdu.nav.entity.Tag">
+  <select id="getTagBySlutId" parameterType="Integer" resultType="com.qdu.nav.entity.PO.Tag">
     select * from nav_tag where SLUG_ID = #{slugId};
   </select>
 
-  <select id="getItemByTagId" resultType="com.qdu.nav.entity.Item">
+  <select id="getItemByTagId" resultType="com.qdu.nav.entity.PO.Item">
     select * from nav_item where TAG_ID = #{tagId} and Is_Private <![CDATA[ <= ]]> #{privateFlag};
   </select>
   <delete id="delItem">
     delete from nav_item where ID = #{itemId};
   </delete>
-  <select id="getAllTag" resultType="com.qdu.nav.entity.Tag">
+  <select id="getAllTag" resultType="com.qdu.nav.entity.PO.Tag">
     select * from nav_tag;
   </select>
 
-  <insert id="insertItem" parameterType="com.qdu.nav.entity.Item">
+  <insert id="insertItem" parameterType="com.qdu.nav.entity.PO.Item">
     insert into nav_item(`TITLE`,`URL`,`TAG_ID`,`Is_Private`,`desc`) values(#{item.title},#{item.url},#{item.tagId},#{item.isPrivate},#{item.desc});
   </insert>
 
-  <update id="updateItem" parameterType="com.qdu.nav.entity.Item">
+  <update id="updateItem" parameterType="com.qdu.nav.entity.PO.Item">
     update nav_item
         set
             `TITLE`=#{item.title},

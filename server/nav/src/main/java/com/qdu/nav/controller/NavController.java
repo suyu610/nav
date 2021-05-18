@@ -1,19 +1,13 @@
 package com.qdu.nav.controller;
 
-import com.qdu.nav.entity.Item;
+import com.qdu.nav.entity.PO.Item;
 import com.qdu.nav.service.NavService;
 import com.qdu.nav.service.UserService;
-import com.qdu.nav.util.JwtTokenUtil;
 
-import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * @ClassName NavController

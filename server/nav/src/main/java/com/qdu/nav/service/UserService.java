@@ -2,14 +2,11 @@ package com.qdu.nav.service;
 
 import com.alibaba.druid.util.StringUtils;
 import com.alibaba.fastjson.JSONObject;
-import com.qdu.nav.entity.Tag;
-import com.qdu.nav.entity.User;
+import com.qdu.nav.entity.PO.User;
 import com.qdu.nav.mapper.UserMapper;
 import com.qdu.nav.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @ClassName UserService

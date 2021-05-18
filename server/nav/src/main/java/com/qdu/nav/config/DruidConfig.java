@@ -59,7 +59,6 @@ public class DruidConfig {
     initParams.put("exclusions","*.js,*.css,/druid/*");
 
     bean.setInitParameters(initParams);
-
     bean.setUrlPatterns(Arrays.asList("/*"));
 
     return  bean;

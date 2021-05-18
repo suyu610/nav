@@ -1,8 +1,6 @@
 package com.qdu.nav.mapper;
 
-import com.qdu.nav.entity.User;
-
-import java.util.List;
+import com.qdu.nav.entity.PO.User;
 
 
 public interface UserMapper {

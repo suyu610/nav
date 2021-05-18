@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qdu.nav.mapper.UserMapper">
 
-  <select id="isCorrect" parameterType="java.lang.String" resultType="com.qdu.nav.entity.User">
+  <select id="isCorrect" parameterType="java.lang.String" resultType="com.qdu.nav.entity.PO.User">
     select
        *
     from User

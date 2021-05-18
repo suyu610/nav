@@ -1,6 +1,5 @@
 package com.qdu.nav.controller;
 
-import com.qdu.nav.entity.Item;
 import com.qdu.nav.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

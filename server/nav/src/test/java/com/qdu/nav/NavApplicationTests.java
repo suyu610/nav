@@ -17,4 +17,6 @@ class NavApplicationTests {
     stringRedisTemplate.opsForValue().append("ms","hello");
 
   }
+
+
 }

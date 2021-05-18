@@ -2,53 +2,16 @@ server:
   port: 18814
 
 spring:
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6379
-    timeout: 20000
-    jedis:
-      pool:
-        max-active: 8
-        min-idle: 0
-        max-idle: 8
-        max-wait: -1
-  #   数据源基本配置
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    filters: stat,wall
-    initial-size: 5
-    max-active: 20
-    max-pool-prepared-statement-per-connection-size: 20
-    max-wait: 60000
-    min-evictable-idle-time-millis: 300000
-    min-idle: 5
     username: root
-    password: pwd
-    pool-prepared-statements: true
-    test-on-borrow: false
-    test-on-return: false
-    test-while-idle: true
-    time-between-eviction-runs-millis: 60000
+    password: HPyuko12!!
     url: jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    validation-query: SELECT 1 FROM DUAL
-    validation-query-timeout: 30000
-
-  application:
-    name: navigation
-
-cross:
-  origin: "*"
 
 jwt:
   accessTokenExpireTime: P30D
   issuer: qdu.life
   refreshTokenExpireAppTime: P30D
   refreshTokenExpireTime: P30D
-  secretKey: SecretKey
-
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  secretKey: HP..yuko12!!>>serv
 
 
