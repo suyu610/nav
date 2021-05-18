@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qdu.nav.mapper.NoteMapper">
+
+  <select id="getNote" parameterType="java.lang.String" resultType="java.lang.String">
+    select
+      note
+    from Note
+    limit 1
+  </select>
+
+  <update id="saveNote" parameterType="java.lang.String">
+    update Note set
+      Note.note=#{note}
+    ORDER BY `id` DESC LIMIT 1
+  </update>
+</mapper>

@@ -1,0 +1,207 @@
+<html lang="zh-CN">
+
+<head>
+  <title>素语导航</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport">
+  <meta content="jsthon" name="author">
+  <meta content="素语的网站导航" name="description">
+  <meta content="导航,网址导航,导航网站,常用网站,常用网址" name="keywords">
+  <link href="https://cdns.qdu.life/navigation/img/common/icon@64.png" rel="shortcut icon" type="image/png">
+  <link href="https://cdns.qdu.life/navigation/img/common/icon_512.png" rel="apple-touch-icon">
+  <!--   
+  <link rel="stylesheet" href="assets/css/dialogify.css">
+  <link rel="stylesheet" href="assets/css/light-theme.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=q9s5du" >
+  <link rel="stylesheet" href="assets/css/basicContext.min.css">
+  <link rel="stylesheet" href="assets/css/jTippy.min.css">
+  <link rel="stylesheet" href="assets/css/bright.min.css"> 
+-->
+  <!-- 合并css -->
+  <link rel="stylesheet" href="https://cdns.qdu.life/navigation/merge_file/merge.min.css">
+  <!-- 百度统计 -->
+  <script>
+    var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?949fe1f3eb2724ff30971c99a21049af";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<!-- 修改modal的模板 -->
+<script type="text/template" id="modify_template">
+    标题<input type="text" id="modify_title" class="text-field" placeholder="标题" value="{title}">    
+    描述<input type="text" id="modify_desc" class="text-field" placeholder="描述" value="{desc}">
+    url<input type="text" id="modify_url" class="text-field" placeholder="https://" value="{url}">
+    <select id="modify_tag" value={tag_value}>{tag_options}</select>    
+</script>
+<!-- 在栏目名前加了个icon -->
+<style>
+  .info ul li img{
+    width: 12px;
+    height: 10px;
+    position: relative;
+    top: 11px;
+    margin-right: 3px;
+    opacity: 0.5;
+  }
+    .info ul li:first-child{
+    /*background-color: red;*/
+    overflow: hidden;
+    width: auto;
+  }  
+</style>
+
+<body>
+  <div class="note" onclick="clickNote(this)">
+    <input type="checkbox" id="a" disabled="" value="" onclick="clickNote(this)">
+    <i class="fa fa-times"></i>
+    <div class="text" onclick="clickNoteChild()">
+      <textarea onclick="clickNoteChild()" id="noteTextArea" style="resize: none;" disabled spellcheck="false">登陆后使用备忘录</textarea>
+    </div>
+  </div>
+  <nav id=site-nav>
+    <div class=float-left id=nav-close></div>
+    <ul class=float-right id=menu>
+      <li><a href="/" data-toggle="tooltip" title="提示的内容">首页</a>
+      <li class=has-submenu><a href=#>社交</a>
+        <ul class=submenu>
+          <li><a href=https://doc.qdu.life/ target=_blank>Blog</a>
+          <li><a href=https://github.com/uuorb target=_blank>GitHub</a>
+        </ul>
+      <li><a href=contact.html>联系</a>
+      <li><a href=about.html>关于</a>
+    </ul>
+  </nav>
+  <div id="site-main">
+    <div id="jsi-flying-fish-container" class="container" style="width: 100%"></div>
+    <div id="main-overlay" class=""></div>
+    <header id="site-header">
+      <div class="container">
+        <div class="float-left" id="header-logo">
+          <div class="logo-img"><a href="https://www.qdu.life/app">Su.</a></div>
+        </div>
+        <div class="float-right" id="burger">
+          <div id="burger-icon"><span class="icon-bar top"></span> <span class="icon-bar middle"></span> <span class="icon-bar bottom"></span></div>
+        </div>
+      </div>
+    </header>
+    <div class="headline search-bar">
+      <div class="container">
+        <div class="headline-content">
+          <div class="search-tab">
+            <span class="baidu">百度</span>
+            <span class="google active">谷歌</span>
+            <span class="zhihu">知乎</span>
+            <span class="bilibili">哔哩哔哩</span>
+            <!-- <span class="scholar">学术</span> -->
+          </div>
+          <form class="search-form" target="_blank" action="https://www.google.com/search" data-children-count="1"><input class="float-left search-keyword" type="search" autocomplete="off" autofocus="" name="q" placeholder="Google 搜索"> <input class="float-right" type="submit" value="搜索"></form>
+        </div>
+      </div>
+    </div>
+    <div class="works">
+      <div class="work-link" style="opacity: 1;">
+        <div class="container">
+          <div class="tab">
+            <span class="common active">常用</span>
+            <span class="todo">待办</span>
+            <span class="blog">我的创作</span>
+            <span class="study">学习</span>
+            <span class="unsort">不常用</span>
+            <i class="icon-cog" id="setting-icon"></i>
+          </div>
+          <div class="info" style=""></div>
+        </div>
+      </div>
+    </div>
+    <select id="tmp_tag" style="display: none"></select>
+    <div id="todoHtml" style="display: none">
+      <button id="copy-btn" data-clipboard-text="123123123" style="display: none"></button>
+      <div class="card-list">
+        <div class="card cus-scroll">
+          <div class="thumbnail" onclick="jump2Rishiqing()">
+            <img src="https://cdns.qdu.life/navigation/Bear.svg" />
+          </div>
+          <h1 class="title">重要且紧急</h1>
+          <div class="description" id="todo-description-1">
+            <div style="text-align:center">需要登陆</div>
+          </div>
+        </div>
+        <div class="card cus-scroll">
+          <div class="thumbnail"><img src="https://cdns.qdu.life/navigation/Stag.svg" /></div>
+          <h1 class="title">重要不紧急</h1>
+          <div class="description" id="todo-description-2">
+            <div style="text-align:center">需要登陆</div>
+          </div>
+        </div>
+        <div class="card cus-scroll">
+          <div class="thumbnail"><img src="https://cdns.qdu.life/navigation/Fox.svg" /></div>
+          <h1 class="title">紧急但不重要</h1>
+          <div class="description" id="todo-description-3">
+            <div style="text-align:center">需要登陆</div>
+          </div>
+        </div>
+        <div class="card cus-scroll">
+          <div class="thumbnail"><img src="https://cdns.qdu.life/navigation/Rabbit.svg" /></div>
+          <h1 class="title">不重要不紧急</h1>
+          <div class="description" id="todo-description-4">
+            <div style="text-align:center">需要登陆</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id=site-footer>
+      <div class=container>
+        <div class=copy>© <span id=current-year>
+            <script>
+            document.getElementById("current-year").innerHTML = (new Date).getFullYear()
+
+            </script>
+          </span>&nbsp;素语导航<br><a href=http://beian.miit.gov.cn/ target=_blank>湘ICP备2020018954号</a><br><a href="https://wht.im/">Inspired by wht.im</a>
+        </div>
+        <div class=social>
+          <a href=https://github.com/uuorb target=_blank class=social-link><i class=icon-github-circled></i></a>
+          <a href=https://qdu.life/app target=_blank class=social-link><i class=icon-home></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- 
+    <script src="assets/scripts/jquery.min.js"></script>    
+    <script src="assets/scripts/clipboard.min.js"></script>
+    <script src="assets/scripts/colorUtil.js"></script>
+    <script src="assets/scripts/growl-notification.min.js"></script>
+    <script src="assets/scripts/dialogify.min.js"></script>
+    <script src="assets/scripts/fish.js"></script>
+    <script src="assets/scripts/draggabilly.pkgd.min.js"></script>
+    <script src="assets/scripts/basicContext.min.js"></script> 
+    <script src="assets/scripts/jTippy.min.js"></script>
+    -->
+  <!-- 合并js -->
+  <script src="https://cdns.qdu.life/navigation/merge_file/merge.min.js"></script>  
+  <!-- <script src="https://cdns.qdu.life/navigation/merge_file/myIndex@2.js"></script> -->
+  <!-- 作者原来的 -->
+  <!-- <script src="https://cdns.qdu.life/navigation/merge_file/index.js"></script> -->
+  <!-- 不知道这个是干嘛的  -->
+  <!-- <script src="https://cdns.qdu.life/navigation/merge_file/main.js"></script>  -->
+  <!-- 跟TODO相关的 -->
+  <!-- <script src="https://cdns.qdu.life/navigation/merge_file/todo.js"></script> -->
+  <script src="assets/scripts/myIndex.js"></script>
+  <script src="assets/scripts/index.js"></script>
+  <script src="https://cdns.qdu.life/navigation/merge_file/main.js"></script>
+  <!--  业务    -->
+  <script src="assets/scripts/todo.js"></script>
+</body>
+<style>
+@media only screen and (max-width: 767px) {
+  #sidebar_search_box input[type=text] {
+    width: calc(100%)
+  }
+}
+
+</style>
+
+</html>
