@@ -7,7 +7,10 @@ $(function() {
       token: token,
     },
     success: function(data) {
-      handleGetTodoData(data)      
+      if(data.code == 200){
+        let todoList = jQuery.parseJSON(data.data)
+        handleGetTodoData(todoList)      
+      }
     },
     error: function(data) {
       console.log(data.responseText)

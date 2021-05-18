@@ -1,0 +1,188 @@
+[2021-05-19T01:16:51,208+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 212419
+][2021-05-19T01:16:51,212+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 223299
+][2021-05-19T01:16:51,213+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 223306
+][2021-05-19T01:16:51,214+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 223318
+][2021-05-19T01:16:51,215+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 223335
+][2021-05-19T01:16:51,693+08:00] ERROR [http-nio-18814-exec-1] [/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:6886": Connection refused; nested exception is java.net.ConnectException: Connection refused] with root cause
+] java.net.ConnectException: Connection refused
+	at sun.nio.ch.Net.connect0(Native Method) ~[?:?]
+	at sun.nio.ch.Net.connect(Net.java:574) ~[?:?]
+	at sun.nio.ch.Net.connect(Net.java:563) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588) ~[?:?]
+	at java.net.Socket.connect(Socket.java:648) ~[?:?]
+	at java.net.Socket.connect(Socket.java:597) ~[?:?]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:182) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:474) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:569) ~[?:?]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:341) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:362) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016) ~[?:?]
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:732) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:343) ~[spring-web-5.3.6.jar:5.3.6]
+	at com.qdu.nav.service.impl.TodoServiceImpl.testHttp(TodoServiceImpl.java:39) ~[classes/:?]
+	at com.qdu.nav.service.impl.TodoServiceImpl.getTodoFromRishiqing(TodoServiceImpl.java:28) ~[classes/:?]
+	at com.qdu.nav.controller.TodoController.getTodos(TodoController.java:29) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at com.qdu.nav.config.CrossOriginFilter.doFilter(CrossOriginFilter.java:31) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.2.1.jar:1.2.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+[2021-05-19T01:17:47,174+08:00] ERROR [http-nio-18814-exec-8] [/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 INTERNAL SERVER ERROR: [<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>
+]] with root cause
+] org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 INTERNAL SERVER ERROR: [<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>
+]
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:188) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:125) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:732) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:343) ~[spring-web-5.3.6.jar:5.3.6]
+	at com.qdu.nav.service.impl.TodoServiceImpl.testHttp(TodoServiceImpl.java:39) ~[classes/:?]
+	at com.qdu.nav.service.impl.TodoServiceImpl.getTodoFromRishiqing(TodoServiceImpl.java:28) ~[classes/:?]
+	at com.qdu.nav.controller.TodoController.getTodos(TodoController.java:29) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at com.qdu.nav.config.CrossOriginFilter.doFilter(CrossOriginFilter.java:31) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.2.1.jar:1.2.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+[2021-05-19T01:24:01,760+08:00] ERROR [http-nio-18814-exec-8] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 61270
+][2021-05-19T01:26:56,376+08:00] ERROR [http-nio-18814-exec-9] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 97963
+][2021-05-19T01:29:11,625+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 74682
+][2021-05-19T01:35:54,224+08:00] ERROR [http-nio-18814-exec-1] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 123431
+][2021-05-19T01:35:54,230+08:00] ERROR [http-nio-18814-exec-1] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 128095
+][2021-05-19T01:35:54,232+08:00] ERROR [http-nio-18814-exec-1] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 128107
+][2021-05-19T01:35:54,233+08:00] ERROR [http-nio-18814-exec-1] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 128118
+][2021-05-19T01:35:54,235+08:00] ERROR [http-nio-18814-exec-1] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 128128
+][2021-05-19T01:45:04,886+08:00] WARN  [http-nio-18814-exec-8] support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.qdu.nav.entity.VO.Result com.qdu.nav.controller.UserController.login(com.qdu.nav.entity.VO.LoginReqVO)]
+][2021-05-19T01:46:12,580+08:00] ERROR [http-nio-18814-exec-2] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 74475
+][2021-05-19T01:46:12,582+08:00] ERROR [http-nio-18814-exec-2] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 143006
+][2021-05-19T01:46:12,583+08:00] ERROR [http-nio-18814-exec-2] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 143015
+][2021-05-19T01:46:12,584+08:00] ERROR [http-nio-18814-exec-2] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 143022
+][2021-05-19T01:46:12,585+08:00] ERROR [http-nio-18814-exec-2] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 143032
+][2021-05-19T01:48:37,997+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 89491
+][2021-05-19T01:57:24,390+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 89677
+][2021-05-19T01:57:24,395+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 166823
+][2021-05-19T01:57:24,398+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 166831
+][2021-05-19T01:57:24,399+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 166839
+][2021-05-19T01:57:24,400+08:00] ERROR [http-nio-18814-exec-7] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 166849
+][2021-05-19T01:59:18,468+08:00] ERROR [http-nio-18814-exec-3] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 100381
+][2021-05-19T01:59:18,469+08:00] ERROR [http-nio-18814-exec-3] pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://localhost:3306/navigation?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 113972
+]

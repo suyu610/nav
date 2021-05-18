@@ -1,4 +1,4 @@
-package com.qdu.nav.service;
+package com.qdu.nav.service.impl;
 
 /**
  * @ClassName NavService
@@ -14,6 +14,7 @@ import com.qdu.nav.entity.PO.Item;
 import com.qdu.nav.entity.PO.Slug;
 import com.qdu.nav.entity.PO.Tag;
 import com.qdu.nav.mapper.NavMapper;
+import com.qdu.nav.service.NavService;
 import com.qdu.nav.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,29 +22,29 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 
-@Service
-public class NavService {
+@Service("NavService")
+public class NavServiceImpl implements NavService{
   @Autowired
   NavMapper navMapper;
 
-  public String delItem(String token, String itemId){
+  public String delItem(String itemId){
     JSONObject jsonObject = new JSONObject();
-    if(JwtTokenUtil.validateToken(token)) {
-      jsonObject.put("name",navMapper.delItem(itemId));
-      return jsonObject.toString();
-    }
+    // 删除的个数
+    String title = navMapper.getItemNameByItemId(itemId);
 
+    int delCount =  navMapper.delItem(itemId);
+    System.out.println("==============");
+    System.out.println(delCount);
+    System.out.println("==============");
+
+    if(delCount>=1){
+      System.out.println(title);
+      jsonObject.put("name",title);
+    }else{
+      return null;
+    }
     return jsonObject.toString();
   }
-
-  /**将方法运行结果进行缓存，当方法被再次调用时，直接返回缓存中的结果。
-   * 参数：
-   * value：指定缓存组件的名字
-   * key：缓存的key。可以使用SpEl表达式
-   * condition：缓存条件。（为true时缓存），使用EL表达式
-   * unless：否定缓存。（为true时不缓存）unless在方法执行之后判断，所以unless可以用结	果作为判断条件。
-   * @return
-   */
 
   public String getAllPublicNav(String token) {
     List<Slug> slugList = navMapper.getAllSlug();
@@ -97,20 +98,12 @@ public class NavService {
 
   // 修改了数据库的数据，同时更新缓存。先调用目标方法，然后缓存方法结果。
   // 只能是result.id
-  public int insertItem(Item item,String token) {
-    if(JwtTokenUtil.validateToken(token)){
-
+  public int insertItem(Item item) {
       return navMapper.insertItem(item);
-    }else{
-      return 0;
-    }
   }
 
-  public int updateItem(Item item,String token) {
-    if(JwtTokenUtil.validateToken(token)){
+  public int updateItem(Item item) {
       return navMapper.updateItem(item);
-    }
-    return 0;
   }
 
   public String getTags() {
@@ -131,13 +124,5 @@ public class NavService {
     }
     return tagJsonArray.toString();
   }
-
-//
-//  //删除数据之后，清除缓存
-//  @CacheEvict(value = "nav", key = "targetClass + methodName")
-//  public String deleteUser(Integer id) {
-//    userInfoMapper.deleteUserById(id);
-//    return "已删除";
-//  }
 }
 

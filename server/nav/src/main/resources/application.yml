@@ -36,6 +36,12 @@ spring:
 
   application:
     name: navigation
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
 
 cross:
   origin: "*"
@@ -52,3 +58,8 @@ mybatis:
   configuration:
     # 转驼峰
     map-underscore-to-camel-case: true
+
+logging:
+  config: classpath:log4j2/log4j2.xml
+  level:
+    cn.jay.repository: trace

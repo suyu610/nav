@@ -13,12 +13,31 @@
     limit 1
   </select>
 
-  <select id="search" parameterType="java.lang.String" resultType="com.qdu.nav.entity.PO.StuInfo">
+  <select id="search" parameterType="com.qdu.nav.entity.VO.SearchStuReqVO" resultType="com.qdu.nav.entity.VO.StuInfoVO">
     select
       *
     from stu_info
     where
+
+    <if test="name!=null and name!=''">
       name like concat('%',#{name},'%')
+    </if>
+
+    <if test="ssNumber!=null and ssNumber!=''">
+      and ss_number like concat('%',#{ssNumber},'%')
+    </if>
+
+    <if test="(name==null or name=='') and (ssNumber!=null and ssNumber!='')">
+      ss_number like concat('%',#{ssNumber},'%')
+    </if>
+
+    <if test="gender!=null and gender!=''">
+      and (gender like #{gender} or gender = "null")
+    </if>
+
+    <if test="year!=0">
+        and year = #{year}
+    </if>
   </select>
 
 </mapper>

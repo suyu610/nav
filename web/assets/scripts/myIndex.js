@@ -1,6 +1,6 @@
  let baseProdUrl = "https://api-word.qdu.life";
  let baseDevUrl = "http://localhost:18814";
- let baseUrl = baseProdUrl;
+ let baseUrl = baseDevUrl;
 
  new ClipboardJS('#copy-btn');
  $('.note').draggabilly()
@@ -26,21 +26,28 @@
    let token = localStorage.getItem("token");
    // 不存在的话，执行登陆
    if (token == null || token == "undefined") {
+    var data = { "username": $("#username").val(), "password": $("#password").val() }         
      $.ajax({
-       type: "GET",
+       type: "POST",
        url: baseUrl + "/login",
-       headers: {
-         username: $("#username").val(),
-         password: $("#password").val()
-       },
+       data: JSON.stringify(data), 
+       contentType: 'application/json',      
        dataType: "json",
-       success: function(data) {
-         localStorage.setItem("token", data.token)
-         location.reload();
+       success: function(data) {         
+        
+        if(data.code == 200){
+          let dataDict = jQuery.parseJSON(data.data)          
+          localStorage.setItem("token", dataDict.token)
+          location.reload();
+        }else if(data.code == -2){
+          showAlert("登陆失败",data.msg)
+        }else{
+          showAlert("登陆失败","未知错误")
+        }
        },
        error: function(data) {
          console.log(data.responseText)
-         showAlert("登陆失败","账号或密码错误")
+         showAlert("登陆失败","系统错误")
        }
      });
      // 存在的话，执行退出
@@ -49,7 +56,6 @@
      location.reload();
    }
  }
-
 
  function submit() {
    if (token != null && token != "undefined") {
@@ -63,8 +69,7 @@
        data: JSON.stringify(data),
        contentType: 'application/json',
        dataType: "json",
-       success: function(data) {
-         // location.reload();
+       success: function() {
          showAlert("添加成功", "")
          //  清空
          $("#title").val("")
@@ -92,8 +97,10 @@
        contentType: 'application/json',
        dataType: "json",
        success: function(data) {
-         $("#noteTextArea").html(data.note)
-       },
+         if(data.code == 200){
+          let noteStr = jQuery.parseJSON(data.data).note
+          $("#noteTextArea").html(noteStr)
+       }},
        error: function(data) {
          console.log("没权限")
        }
@@ -104,7 +111,6 @@
  function saveNote() {
    if (token != null && token != "undefined") {
      let data = { "note": $("#noteTextArea").val() }
-     // console.log(data)
      $.ajax({
        type: "POST",
        url: baseUrl + "/saveNote",
@@ -115,6 +121,7 @@
        dataType: "text",
        data: JSON.stringify(data),
        error: function(data) {
+         showAlert("保存失败","请重新登录")
          console.log("没有存的权限")
        }
      });
@@ -171,7 +178,33 @@
      closeTimeout: 2500
    });
  }
-
+ function delItem(itemId){
+  $.ajax({
+    type: "GET",
+    url: baseUrl + "/delItem",
+    headers: {
+      'token': token,
+      'id': itemId,
+    },
+    contentType: 'application/json',
+    dataType: "json",
+    success: function(data) {
+      if(data.code == 200){                  
+        let name = jQuery.parseJSON(data.data).name
+        setTimeout(function() {
+          location.reload()
+        }, 1000)
+        showAlert("删除成功", name)
+      }else{
+      showAlert("删除失败", data.msg)
+      }
+   },
+    error: function(data) {
+      showAlert("删除失败", data.responseJSON.error)
+    }
+  });
+ }
+ //  删除
  function showDelDialog(title, description, id) {
    GrowlNotification.notify({
      title: title,
@@ -185,25 +218,7 @@
          text: '确认',
          callback: function delFunction() {
            if (token != null && token != "undefined") {
-             $.ajax({
-               type: "GET",
-               url: baseUrl + "/delItem",
-               headers: {
-                 'token': token,
-                 'id': id,
-               },
-               contentType: 'application/json',
-               dataType: "json",
-               success: function(data) {
-                 setTimeout(function() {
-                   location.reload()
-                 }, 1000)
-                 showAlert("删除成功", data.name)
-               },
-               error: function(data) {
-                 showAlert("删除失败", data.responseJSON.error)
-               }
-             });
+            delItem(id)
            } else {
              showAlert("非法操作", "token为空")
            }
@@ -224,11 +239,15 @@
    },
    dataType: "json",
    success: function(data) {
-     // console.log(data)
-     comm_list = data
+     if(data.code == 200){      
+      comm_list = jQuery.parseJSON(data.data)
+    }else{
+      showAlert("服务器异常","请稍后重试")
+    }
    },
    error: function(data) {
-     console.log(data.responseText)
+    showAlert("服务器异常","请稍后重试")
+    console.log(data.responseText)
    }
  });
 
@@ -247,17 +266,21 @@
      type: "GET",
      url: baseUrl + "/tags",
      dataType: "json",
-     success: function(aJson, tag_list) {
-       $.each(aJson, function(index, value) {
-         let name = value.name
-         let id = value.id
-         tag_list = []
-         tag_list.push("<option value='" + id + "'>" + name + "</option>");
-         $("#tmp_tag").append("<option value='" + id + "'>" + name + "</option>");
-       });
+     success: function(data, tag_list) {
+       if(data.code == 200){       
+       let aJson = jQuery.parseJSON(data.data)
+        $.each(aJson, function(index, value) {
+          let name = value.name
+          let id = value.id
+          tag_list = []
+          tag_list.push("<option value='" + id + "'>" + name + "</option>");
+          $("#tmp_tag").append("<option value='" + id + "'>" + name + "</option>");
+        });
+      }
      },
      error: function(data) {
-       console.log(data.responseText)
+      showAlert("发生错误","服务器异常")
+      console.log(data.responseText)
      }
    });
 

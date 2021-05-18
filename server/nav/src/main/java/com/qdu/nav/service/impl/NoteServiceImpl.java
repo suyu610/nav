@@ -1,7 +1,8 @@
-package com.qdu.nav.service;
+package com.qdu.nav.service.impl;
 
 import com.qdu.nav.mapper.NoteMapper;
 import com.qdu.nav.mapper.UserMapper;
+import com.qdu.nav.service.NoteService;
 import com.qdu.nav.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,22 +15,15 @@ import org.springframework.stereotype.Service;
  * @Version 0.1
  **/
 @Service
-public class NoteService {
+public class NoteServiceImpl implements NoteService {
   @Autowired
   NoteMapper noteMapper;
 
-  public String getNote(String token){
-    if(JwtTokenUtil.validateToken(token)){
-      return noteMapper.getNote();
-    }
-    return "";
+  public String getNote(){
+    return noteMapper.getNote();
   }
 
-  public void saveNote(String token,String note){
-    if(JwtTokenUtil.validateToken(token)){
-      noteMapper.saveNote(note);
-    }else{
-      System.out.println("Token 不正确");
-    }
+  public void saveNote(String note){
+    noteMapper.saveNote(note);
   }
 }

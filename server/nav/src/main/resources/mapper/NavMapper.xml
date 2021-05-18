@@ -40,4 +40,8 @@
     where `ID` = #{item.id};
   </update>
 
+  <select id="getItemNameByItemId" parameterType="String" resultType="String">
+    select TITLE from nav_item where ID = #{id}
+  </select>
+
 </mapper>

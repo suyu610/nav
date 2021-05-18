@@ -3,6 +3,7 @@ package com.qdu.nav.entity.VO;
 import com.qdu.nav.entity.PO.StuInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -15,6 +16,7 @@ import java.io.Serializable;
  **/
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Result<T> implements Serializable {
   int code;
   String msg;
@@ -23,5 +25,7 @@ public class Result<T> implements Serializable {
   public static<T> Result ok(T data){
     return new Result(200,"成功",data);
   }
-
+  public static<T> Result ok(){
+    return new Result(200,"成功",null);
+  }
 }

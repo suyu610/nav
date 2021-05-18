@@ -1,9 +1,11 @@
-package com.qdu.nav.service;
+package com.qdu.nav.service.impl;
 
 import com.alibaba.druid.util.StringUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.qdu.nav.entity.PO.User;
+import com.qdu.nav.entity.VO.Result;
 import com.qdu.nav.mapper.UserMapper;
+import com.qdu.nav.service.UserService;
 import com.qdu.nav.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,29 +18,32 @@ import org.springframework.stereotype.Service;
  * @Version 0.1
  **/
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService {
   @Autowired
   UserMapper userMapper;
 
-  public String login(String username,String password){
+  @Override
+  public Result login(String username, String password){
     if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
-      return "账号或密码为空";
+      return new Result(-2,"账号或密码为空",null);
     }
 
     User user = userMapper.isCorrect(username);
 
     if( user != null && StringUtils.equals(user.getPassword(),password)){
       String token =  JwtTokenUtil.getAccessToken(username,null);
-//      System.out.println(token);
       JSONObject jsonObject = new JSONObject();
       jsonObject.put("token",token);
-      return jsonObject.toString();
+      return Result.ok(jsonObject.toString());
     }else {
-      return "账号或密码错误";
+      return new Result(-2,"账号或密码错误",null);
     }
   }
 
   public boolean checkToken(String token){
+    if(StringUtils.isEmpty(token)){
+      return false;
+    }
     return JwtTokenUtil.validateToken(token);
   }
 }

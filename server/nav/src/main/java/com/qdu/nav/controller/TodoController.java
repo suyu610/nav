@@ -1,6 +1,9 @@
 package com.qdu.nav.controller;
 
+import com.qdu.nav.config.Authorization;
+import com.qdu.nav.entity.VO.Result;
 import com.qdu.nav.service.TodoService;
+import com.qdu.nav.service.impl.TodoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +24,9 @@ public class TodoController {
   @Autowired
   TodoService todoService;
 
+  @Authorization
   @GetMapping("/todo")
-  public String getTodos(HttpServletRequest httpRequest){
-    String token = (String) httpRequest.getHeader("token");
-    return todoService.getTodoFromRishiqing(token);
+  public Result getTodos(HttpServletRequest req){
+    return Result.ok(todoService.getTodoFromRishiqing());
   }
 }

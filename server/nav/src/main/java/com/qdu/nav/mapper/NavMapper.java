@@ -4,6 +4,7 @@ package com.qdu.nav.mapper;
 import com.qdu.nav.entity.PO.Item;
 import com.qdu.nav.entity.PO.Slug;
 import com.qdu.nav.entity.PO.Tag;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,7 +19,10 @@ import java.util.List;
  * @Version 0.1
  **/
 
+@Mapper
 public interface NavMapper {
+
+  String getItemNameByItemId(String id);
   List<Tag> getTagBySlutId(int slugId);
   @Cacheable(value = "nav", key = "methodName+#tagId+#privateFlag")
   List<Item> getItemByTagId(@Param("tagId")int tagId, @Param("privateFlag") int privateFlag);

@@ -1,3 +1,2 @@
 */.DS_Store
-.DS_Store
-/server/nav/src/main/resources/application-prod.yml
+./server/nav/src/main/resources/application-prod.yml

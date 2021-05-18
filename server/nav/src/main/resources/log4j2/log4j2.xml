@@ -2,9 +2,7 @@
 <Configuration status="WARN" monitorInterval="30">
   <Properties>
     <Property name="patternLayout">[%d{yyyy-MM-dd'T'HH:mm:ss,SSSXXX}] %-5p [%t] %c{2} - %m%n]</Property>
-    <!--<Property name="logdir">${sys:catalina.home}</Property>-->
-    <!--<Property name="logdir">/data/logs</Property>-->
-    <Property name="logdir">E:/logs</Property>
+    <Property name="logdir">nav-log</Property>
   </Properties>
 
 
@@ -43,7 +41,6 @@
       <Policies>
         <!--根据时间来滚动-->
         <!--<TimeBasedTriggeringPolicy modulate="true" interval="1"/>-->
-
         <!--根据文件大小来滚动-->
         <SizeBasedTriggeringPolicy size="20 MB"/>
       </Policies>
@@ -58,7 +55,6 @@
       <Policies>
         <!--根据时间来滚动-->
         <!--<TimeBasedTriggeringPolicy modulate="true" interval="1"/>-->
-
         <!--根据文件大小来滚动-->
         <SizeBasedTriggeringPolicy size="20 MB"/>
       </Policies>
@@ -73,7 +69,6 @@
       <Policies>
         <!--根据时间来滚动-->
         <!--<TimeBasedTriggeringPolicy modulate="true" interval="1"/>-->
-
         <!--根据文件大小来滚动-->
         <SizeBasedTriggeringPolicy size="20 MB"/>
       </Policies>
