@@ -1,0 +1,26 @@
+[2021-05-19T01:12:34,945+08:00] INFO  [restartedMain] nav.NavApplication - Starting NavApplication using Java 15 on Pengyus-MacBook-Pro.local with PID 32217 (/Users/uuorb/Desktop/navigation/server/nav/target/classes started by uuorb in /Users/uuorb/Desktop/navigation/server/nav)
+][2021-05-19T01:12:34,955+08:00] INFO  [restartedMain] nav.NavApplication - The following profiles are active: dev
+][2021-05-19T01:12:35,014+08:00] INFO  [restartedMain] restart.ChangeableUrls - The Class-Path manifest attribute in /Users/uuorb/.m2/repository/com/sun/xml/bind/jaxb-core/2.3.0/jaxb-core-2.3.0.jar referenced one or more files that do not exist: file:/Users/uuorb/.m2/repository/com/sun/xml/bind/jaxb-core/2.3.0/jaxb-api.jar
+][2021-05-19T01:12:35,017+08:00] INFO  [restartedMain] restart.ChangeableUrls - The Class-Path manifest attribute in /Users/uuorb/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.0/jaxb-impl-2.3.0.jar referenced one or more files that do not exist: file:/Users/uuorb/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.0/jaxb-core.jar
+][2021-05-19T01:12:35,018+08:00] INFO  [restartedMain] env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+][2021-05-19T01:12:35,018+08:00] INFO  [restartedMain] env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+][2021-05-19T01:12:35,984+08:00] INFO  [restartedMain] config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+][2021-05-19T01:12:35,986+08:00] INFO  [restartedMain] config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+][2021-05-19T01:12:36,008+08:00] INFO  [restartedMain] config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+][2021-05-19T01:12:36,236+08:00] INFO  [restartedMain] support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.qdu.nav.config.RedisConfig$$EnhancerBySpringCGLIB$$df515a71] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+][2021-05-19T01:12:36,523+08:00] INFO  [restartedMain] tomcat.TomcatWebServer - Tomcat initialized with port(s): 18814 (http)
+][2021-05-19T01:12:36,530+08:00] INFO  [restartedMain] http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-18814"]
+][2021-05-19T01:12:36,531+08:00] INFO  [restartedMain] core.StandardService - Starting service [Tomcat]
+][2021-05-19T01:12:36,532+08:00] INFO  [restartedMain] core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+][2021-05-19T01:12:36,593+08:00] INFO  [restartedMain] [localhost].[/] - Initializing Spring embedded WebApplicationContext
+][2021-05-19T01:12:36,593+08:00] INFO  [restartedMain] context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1573 ms
+][2021-05-19T01:12:37,712+08:00] INFO  [restartedMain] concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+][2021-05-19T01:12:37,746+08:00] INFO  [restartedMain] autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+][2021-05-19T01:12:38,012+08:00] INFO  [restartedMain] http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-18814"]
+][2021-05-19T01:12:38,036+08:00] INFO  [restartedMain] tomcat.TomcatWebServer - Tomcat started on port(s): 18814 (http) with context path ''
+][2021-05-19T01:12:38,219+08:00] INFO  [restartedMain] nav.NavApplication - Started NavApplication in 3.749 seconds (JVM running for 4.862)
+][2021-05-19T01:13:07,260+08:00] INFO  [http-nio-18814-exec-1] [localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+][2021-05-19T01:13:07,261+08:00] INFO  [http-nio-18814-exec-1] servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+][2021-05-19T01:13:07,262+08:00] INFO  [http-nio-18814-exec-1] servlet.DispatcherServlet - Completed initialization in 1 ms
+][2021-05-19T01:13:07,925+08:00] INFO  [http-nio-18814-exec-1] pool.DruidDataSource - {dataSource-1} inited
+]
